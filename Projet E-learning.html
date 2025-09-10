@@ -121,7 +121,73 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 /*Typing effect*/
 @keyframes typing {
   from{width : 0}
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="Question-vrai-ou-faux" color="orange"></tw-tag><tw-tag name="Question-liste" color="yellow"></tw-tag><tw-tag name="Explication" color="green"></tw-tag><tw-passagedata pid="1" name="Introduction" tags="" position="700,275" size="100,100">&lt;img/&gt;&lt;div class=&quot;exp&quot;&gt;Bonjour et bienvenue dans cette émission exclusive &lt;b&gt;La vérité sous la couette&lt;/b&gt;. Durant cette émission, vous répondrez à 13 questions afin de savoir si vous êtes un afin de savoir si vous êtes un expert de la couette responsable et respectueuse. [[C&#39;est parti pour la première question !|q1]]&lt;/div&gt;&lt;div class=&quot;pres&quot;&gt;&lt;/div&gt;
+}
+
+
+#ui-bar {
+    display: none;
+    margin: 0px;
+  padding:0px;
+}
+
+#story{
+  margin:0px;
+}
+
+html {
+    background-image: url("https://cdn.discordapp.com/attachments/1414551462243205181/1414885884821770273/plateau.png?ex=68c132aa&is=68bfe12a&hm=7444bedd7343f0d800dadfd661db207c5cd8ac31a758725f3398fd491d1ee5e2");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+  background-color:#00000000;
+}
+
+
+
+.pres{
+  	z-index:-1;	
+  	background-image: url("https://cdn.discordapp.com/attachments/1414551462243205181/1414904034128695357/mich_lesshappy.png?ex=68c14391&is=68bff211&hm=019b6c78e92007944425183eca1415b84bd77d1fc0272056ea0d2168dc22e323&");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  	position: absolute;
+  	bottom: 0%;
+  	right: 5%;
+  	content:"";
+  	width:30em;
+  	height:30em;
+}
+
+.exp{
+	border-radius: 20px;
+  	padding: 1em; 
+  	background-color: #0000FFAA;
+}
+
+.question{
+	border-radius: 20px;
+  	padding: 1em; 
+  	background-color: #0000FFAA;
+}
+
+.rep{
+  	width:fit-content;
+	border-radius: 20px;
+  	padding: 1em; 
+  	background-color: #0000FFAA;
+}
+
+/*a.link_internal {
+  	text-decoration:none;
+}*/
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="Question-vrai-ou-faux" color="orange"></tw-tag><tw-tag name="Question-liste" color="yellow"></tw-tag><tw-tag name="Explication" color="green"></tw-tag><tw-passagedata pid="1" name="Introduction" tags="" position="700,275" size="100,100">&lt;img/&gt;&lt;div class=&quot;exp&quot;&gt;Bonjour et bienvenue dans cette émission exclusive &lt;b&gt;La vérité sous la couette&lt;/b&gt;. Durant cette émission, vous répondrez à 13 questions afin de savoir si vous êtes un afin de savoir si vous êtes un expert de la couette responsable et respectueuse. [[C&#39;est parti pour la première question !|q1]]&lt;/div&gt;&lt;div class=&quot;pres&quot;&gt;&lt;/div&gt;
 &lt;&lt;set $score = 0&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="Transition" tags="" position="1200,725" size="100,100">&lt;img src=&quot;&quot; /&gt;Et maintenant place à la passons à la question suivante !
 [[Suivant-&gt;Question 4]]</tw-passagedata><tw-passagedata pid="3" name="Transition 1" tags="" position="1200,1150" size="100,100">&lt;img src=&quot;&quot; /&gt;Et maintenant place à la passons à la question suivante !
 [[Suivant-&gt;Question 5]]</tw-passagedata><tw-passagedata pid="4" name="Transition 2" tags="" position="1425,1600" size="100,100">&lt;img src=&quot;&quot; /&gt;Et maintenant place à la passons à la question suivante !
