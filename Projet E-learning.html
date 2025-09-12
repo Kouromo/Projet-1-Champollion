@@ -128,6 +128,7 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
     display: none;
     margin: 0px;
   padding:0px;
+  border:0px;
 }
 
 #story{
@@ -148,47 +149,65 @@ body{
   background-color:#00000000;
 }
 
-
-
-.pres {
-  position: absolute;
-  bottom: 0;
-  right: 5%;
-  z-index: -1;
-
-  width: 35vw;
-  aspect-ratio: 1 / 1;
-
-  background-image: url("https://i.imgur.com/4X0EkHO.png");
-  background-size: cover;    /* couvre le bloc */
-  background-position: center;
-  background-repeat: no-repeat;
+#passages{
+  max-width:-webkit-fill-available;
+  margin: 2em 28em 2em 2em;
+  width:100%
 }
 
-
+.pres{
+  	background-image: url("https://i.imgur.com/4X0EkHO.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  	position: absolute;
+  	bottom: 0%;
+  	right: -2%;
+  	content:"";
+    width: 35vw;
+    aspect-ratio: 1 / 1;
+  	pointer-events:none;
+}
 
 .exp{
 	border-radius: 20px;
-  	padding: 1vh 1vw; 
-  	background-color: #0000FFAA;
+  	padding: 1em; 
+  	background-color: #0000FFBB;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); 
 }
 
 .question{
 	border-radius: 20px;
-  	padding: 1vh 1vw;
-  	background-color: #0000FFAA;
+  	padding: 1em; 
+  	background-color: #0000FFBB;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .rep{
-  	width:fit-content;
+  	text-align:center;
 	border-radius: 20px;
-  	padding: 1vh 1vw;
-  	background-color: #0000FFAA;
+  	padding: 1em; 
+  	background-color: #0000FFBB;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); 
+  	margin: 2em 1em 0 1em;
+  	text-decoration:none;
 }
 
-/*a.link_internal {
-  	text-decoration:none;
-}*/</style><script role="script" id="twine-user-script" type="text/twine-javascript">window.urlScared = "https://i.imgur.com/piFurag.png";
+.score {
+    position: fixed;      
+    bottom: 20px;         
+    left: 20px;           
+    background:#0000FFBB; 
+    color: white;        
+    padding: 10px 15px; 
+    border-radius: 8px;   
+    font-size: 16px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); 
+}
+
+td{
+  width:50%;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">window.urlScared = "https://i.imgur.com/piFurag.png";
 window.urlGrin = "https://i.imgur.com/dg0VzPZ.png";
 window.urlSmile = "https://i.imgur.com/4X0EkHO.png";
 window.urlLaugh = "https://i.imgur.com/8EeZbB0.png";
@@ -252,7 +271,20 @@ window.changePresImage = function(newUrl) {
 
 function getPresEl(){
    return document.querySelector(".pres");
-}</script><tw-tag name="Question-vrai-ou-faux" color="orange"></tw-tag><tw-tag name="Question-liste" color="yellow"></tw-tag><tw-tag name="Explication" color="green"></tw-tag><tw-tag name="Faux" color="red"></tw-tag><tw-tag name="Faux-sad" color="red"></tw-tag><tw-tag name="FauxSad" color="blue"></tw-tag><tw-tag name="Smile" color="purple"></tw-tag><tw-passagedata pid="1" name="Introduction" tags="" position="700,275" size="100,100">&lt;&lt;cacheaudio &quot;br&quot; &quot;./sons/br.wav&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;fin&quot; &quot;./sons/fin.wav&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;introduction&quot; &quot;./sons/introduction.wav&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;mr&quot; &quot;./sons/mr.wav&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;q1&quot; &quot;./sons/q1.wav&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;q9&quot; &quot;./sons/q9.wav&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;r1&quot; &quot;./sons/r1.wav&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;t&quot; &quot;./sons/t.wav&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;applause&quot; &quot;./sons/applause.wav&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;br-son&quot; &quot;./sons/br-son.wav&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;expl-son&quot; &quot;./sons/expl-son.wav&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;intro-son&quot; &quot;./sons/intro-son.mp3&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;mr-son&quot; &quot;./sons/mr-son.wav&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;quest-son&quot; &quot;./sons/quest-son.wav&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;fin-son&quot; &quot;./sons/fin-son.wav&quot;&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;introduction&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;audio &quot;intro-son&quot; play loop volume 0.2 time 1.5&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Bonjour et bienvenue dans cette émission exclusive &lt;b&gt;La vérité sous la couette&lt;/b&gt;. Durant cette émission, vous répondrez à 13 questions afin de savoir si vous êtes un afin de savoir si vous êtes un expert de la couette responsable et respectueuse. [[C&#39;est parti pour la première question !|q1]]&lt;/div&gt;&lt;div class=&quot;pres&quot;&gt;&lt;/div&gt;
+}
+
+/* remplacer les liens Twine par des div clickable 
+( pb : le contenue de la page ne saffiche plus malgrès qu'il semble fonctionnel)
+function parseTwineLinks() {
+  	const text = document.getElementById("passages").innerHTML;
+  
+    document.getElementById("passages").innerHTML = text.replace(/>[^<>]*<a[^<>]*data-passage="([^"]+)"[^<>]*>(.*?)<\/a>/g, function(_, target, label) {return `onclick="SugarCube.Engine.play('${target}'); parseTwineLinks();">${label}`;});
+}
+$(document).on(':passagedisplay', function () {
+    parseTwineLinks();
+});
+*/</script><tw-tag name="Question-vrai-ou-faux" color="orange"></tw-tag><tw-tag name="Question-liste" color="yellow"></tw-tag><tw-tag name="Explication" color="green"></tw-tag><tw-tag name="Faux" color="red"></tw-tag><tw-tag name="Faux-sad" color="red"></tw-tag><tw-tag name="FauxSad" color="blue"></tw-tag><tw-tag name="Smile" color="purple"></tw-tag><tw-passagedata pid="1" name="Introduction" tags="" position="700,275" size="100,100">&lt;&lt;cacheaudio &quot;br&quot; &quot;./sons/br.wav&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;fin&quot; &quot;./sons/fin.wav&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;introduction&quot; &quot;./sons/introduction.wav&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;mr&quot; &quot;./sons/mr.wav&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;q1&quot; &quot;./sons/q1.wav&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;q9&quot; &quot;./sons/q9.wav&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;r1&quot; &quot;./sons/r1.wav&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;t&quot; &quot;./sons/t.wav&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;applause&quot; &quot;./sons/applause.wav&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;br-son&quot; &quot;./sons/br-son.wav&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;expl-son&quot; &quot;./sons/expl-son.wav&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;intro-son&quot; &quot;./sons/intro-son.mp3&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;mr-son&quot; &quot;./sons/mr-son.wav&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;quest-son&quot; &quot;./sons/quest-son.wav&quot;&gt;&gt;&lt;&lt;cacheaudio &quot;fin-son&quot; &quot;./sons/fin-son.wav&quot;&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;introduction&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;audio &quot;intro-son&quot; play loop volume 0.2 time 1.5&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Bonjour et bienvenue dans cette émission exclusive &lt;b&gt;La vérité sous la couette&lt;/b&gt;. Durant cette émission, vous répondrez à 13 questions afin de savoir si vous êtes un afin de savoir si vous êtes un expert de la couette responsable et respectueuse.
+[[C&#39;est parti pour la première question !|q1]] &lt;/div&gt; &lt;div class=&quot;pres&quot;&gt;&lt;/div&gt;
 &lt;&lt;set $score = 0&gt;&gt;
 &lt;script&gt;
 $(document).on(&#39;:passagedisplay&#39;, function() {
@@ -360,7 +392,7 @@ Concrètement, es femmes lesbiennes peuvent désormais accéder :
 - à l’insémination artificielle
 - à la fécondation in vitro (FIV)
 ... avec un remboursement par la sécurité sociale, comme pour les couples hétéros
- [[Suite-&gt;Explication question 7 suite]]&lt;/div&gt;&lt;div class=&quot;pres&quot;&gt;&lt;/div&gt;
+[[Suite-&gt;Explication question 7 suite]]&lt;/div&gt;&lt;div class=&quot;pres&quot;&gt;&lt;/div&gt;
  &lt;script&gt;
 $(document).on(&#39;:passagedisplay&#39;, function() {
      changePresImage(urlSerious);
@@ -375,12 +407,14 @@ Pour rappel, à ce jour, la PMA n’est pas ouverte aux couples d’hommes ou au
 $(document).on(&#39;:passagedisplay&#39;, function() {
      changePresImage(urlSmile);
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="27" name="r1nok" tags="Explication" position="1025,250" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q1&quot; stop&gt;&gt;&lt;&lt;audio &quot;mr-son&quot; play volume 0.5&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.2 play loop&gt;&gt; &lt;&lt;audio &quot;r1&quot; play&gt;&gt; &lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Mauvaise réponse... &lt;br/&gt; C’est en &lt;b&gt;1974&lt;/b&gt; que l’Organisation Mondiale de la Santé a introduit pour la première fois le concept de santé sexuelle, en le reliant non seulement à l’absence de maladies, mais aussi au bien-être, au respect et au consentement dans les relations.[[Question suivante !|q2]]&lt;/div&gt;&lt;div class=&quot;pres&quot;&gt;&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;Score : $score&lt;/div&gt;
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="27" name="r1nok" tags="Explication" position="1025,250" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q1&quot; stop&gt;&gt;&lt;&lt;audio &quot;mr-son&quot; play volume 0.5&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.2 play loop&gt;&gt; &lt;&lt;audio &quot;r1&quot; play&gt;&gt; &lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Mauvaise réponse... &lt;br/&gt; C’est en &lt;b&gt;1974&lt;/b&gt; que l’Organisation Mondiale de la Santé a introduit pour la première fois le concept de santé sexuelle, en le reliant non seulement à l’absence de maladies, mais aussi au bien-être, au respect et au consentement dans les relations.
+[[Question suivante !|q2]]&lt;/div&gt;&lt;div class=&quot;pres&quot;&gt;&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;Score : $score&lt;/div&gt;
 &lt;script&gt;
 $(document).on(&#39;:passagedisplay&#39;, function() {
      changePresImage(urlSad);
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="28" name="r1ok" tags="Explication" position="1025,500" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q1&quot; stop&gt;&gt;&lt;&lt;audio &quot;br-son&quot; play volume 0.5&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.2 play loop&gt;&gt;&lt;&lt;audio &quot;r1&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;set $score += 1&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Exact ! C’est en &lt;b&gt;1974&lt;/b&gt; que l’Organisation Mondiale de la Santé a introduit pour la première fois le concept de santé sexuelle, en le reliant non seulement à l’absence de maladies, mais aussi au bien-être, au respect et au consentement dans les relations.[[Question suivante !|q2]]&lt;/div&gt;&lt;div class=&quot;pres&quot;&gt;&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;Score : $score&lt;/div&gt;
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="28" name="r1ok" tags="Explication" position="1025,500" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q1&quot; stop&gt;&gt;&lt;&lt;audio &quot;br-son&quot; play volume 0.5&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.2 play loop&gt;&gt;&lt;&lt;audio &quot;r1&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;set $score += 1&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Exact ! C’est en &lt;b&gt;1974&lt;/b&gt; que l’Organisation Mondiale de la Santé a introduit pour la première fois le concept de santé sexuelle, en le reliant non seulement à l’absence de maladies, mais aussi au bien-être, au respect et au consentement dans les relations.
+[[Question suivante !|q2]]&lt;/div&gt;&lt;div class=&quot;pres&quot;&gt;&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;Score : $score&lt;/div&gt;
 &lt;script&gt;
 $(document).on(&#39;:passagedisplay&#39;, function() {
      changePresImage(urlGrin);
@@ -390,12 +424,14 @@ $(document).on(&#39;:passagedisplay&#39;, function() {
 $(document).on(&#39;:passagedisplay&#39;, function() {
      changePresImage(urlSmile);
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="30" name="r2nok" tags="Explication" position="1300,225" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q9&quot; stop&gt;&gt;&lt;&lt;audio &quot;mr-son&quot; play volume 0.2&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.5 play loop&gt;&gt; &lt;&lt;audio &quot;r1&quot; play&gt;&gt; &lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Mauvaise réponse ... &lt;br/&gt;Michel Foucault était &lt;b&gt;un historien et philosophe&lt;/b&gt; français. Il a beaucoup travaillé sur les questions de pouvoir, de sexualité et de société, et ses recherches ont fortement influencé notre compréhension des rapports de genre et de la sexualité.[[Question suivante !|q3]]&lt;/div&gt;&lt;div class=&quot;pres&quot;&gt;&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;Score : $score&lt;/div&gt;
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="30" name="r2nok" tags="Explication" position="1300,225" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q9&quot; stop&gt;&gt;&lt;&lt;audio &quot;mr-son&quot; play volume 0.2&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.5 play loop&gt;&gt; &lt;&lt;audio &quot;r1&quot; play&gt;&gt; &lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Mauvaise réponse ... &lt;br/&gt;Michel Foucault était &lt;b&gt;un historien et philosophe&lt;/b&gt; français. Il a beaucoup travaillé sur les questions de pouvoir, de sexualité et de société, et ses recherches ont fortement influencé notre compréhension des rapports de genre et de la sexualité.
+[[Question suivante !|q3]]&lt;/div&gt;&lt;div class=&quot;pres&quot;&gt;&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;Score : $score&lt;/div&gt;
 &lt;script&gt;
 $(document).on(&#39;:passagedisplay&#39;, function() {
      changePresImage(urlScared);
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="31" name="r2ok" tags="Explication" position="1300,475" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q9&quot; stop&gt;&gt;&lt;&lt;audio &quot;br-son&quot; play volume 0.5&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.2 play loop&gt;&gt;&lt;&lt;audio &quot;r1&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;set $score += 1&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Bravo ! Michel Foucault était bien un historien et philosophe français. Il a beaucoup travaillé sur les questions de pouvoir, de sexualité et de société, et ses recherches ont fortement influencé notre compréhension des rapports de genre et de la sexualité.[[Question suivante !|q3]]&lt;/div&gt;&lt;div class=&quot;pres&quot;&gt;&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;Score : $score&lt;/div&gt;
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="31" name="r2ok" tags="Explication" position="1300,475" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q9&quot; stop&gt;&gt;&lt;&lt;audio &quot;br-son&quot; play volume 0.5&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.2 play loop&gt;&gt;&lt;&lt;audio &quot;r1&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;set $score += 1&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Bravo ! Michel Foucault était bien un historien et philosophe français. Il a beaucoup travaillé sur les questions de pouvoir, de sexualité et de société, et ses recherches ont fortement influencé notre compréhension des rapports de genre et de la sexualité.
+[[Question suivante !|q3]]&lt;/div&gt;&lt;div class=&quot;pres&quot;&gt;&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;Score : $score&lt;/div&gt;
 &lt;script&gt;
 $(document).on(&#39;:passagedisplay&#39;, function() {
      changePresImage(urlGrin);
@@ -405,17 +441,20 @@ $(document).on(&#39;:passagedisplay&#39;, function() {
 $(document).on(&#39;:passagedisplay&#39;, function() {
      changePresImage(urlSmile);
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="33" name="r3ok" tags="Explication" position="1600,450" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q9&quot; stop&gt;&gt;&lt;&lt;audio &quot;br-son&quot; play volume 0.2&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.5 play loop&gt;&gt; &lt;&lt;audio &quot;r1&quot; play&gt;&gt; &lt;&lt;/timed&gt;&gt;&lt;&lt;set $score += 1&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Bonne réponse ! &lt;br/&gt;Cette phrase signifie qu’on ne naît pas femme par nature, mais qu’on le devient à travers la société et la culture. &lt;b&gt;Simone de Beauvoir&lt;/b&gt; (1908–1986) était une philosophe, écrivaine et militante féministe française. Son ouvrage majeur, Le Deuxième Sexe (1949), analyse la condition des femmes et a marqué l’histoire du féminisme.[[Suite|r3bis]]&lt;/div&gt;&lt;div class=&quot;pres&quot;&gt;&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;Score : $score&lt;/div&gt;
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="33" name="r3ok" tags="Explication" position="1600,450" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q9&quot; stop&gt;&gt;&lt;&lt;audio &quot;br-son&quot; play volume 0.2&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.5 play loop&gt;&gt; &lt;&lt;audio &quot;r1&quot; play&gt;&gt; &lt;&lt;/timed&gt;&gt;&lt;&lt;set $score += 1&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Bonne réponse ! &lt;br/&gt;Cette phrase signifie qu’on ne naît pas femme par nature, mais qu’on le devient à travers la société et la culture. &lt;b&gt;Simone de Beauvoir&lt;/b&gt; (1908–1986) était une philosophe, écrivaine et militante féministe française. Son ouvrage majeur, Le Deuxième Sexe (1949), analyse la condition des femmes et a marqué l’histoire du féminisme.
+[[Suite|r3bis]]&lt;/div&gt;&lt;div class=&quot;pres&quot;&gt;&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;Score : $score&lt;/div&gt;
 &lt;script&gt;
 $(document).on(&#39;:passagedisplay&#39;, function() {
      changePresImage(urlGrin);
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="34" name="r3nok" tags="Explication" position="1600,225" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q9&quot; stop&gt;&gt;&lt;&lt;audio &quot;mr-son&quot; play volume 0.2&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.5 play loop&gt;&gt; &lt;&lt;audio &quot;r1&quot; play&gt;&gt; &lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Mauvaise réponse ... &lt;br/&gt;Cette phrase signifie qu’on ne naît pas femme par nature, mais qu’on le devient à travers la société et la culture. &lt;b&gt;Simone de Beauvoir&lt;/b&gt; (1908–1986) était une philosophe, écrivaine et militante féministe française. Son ouvrage majeur, Le Deuxième Sexe (1949), analyse la condition des femmes et a marqué l’histoire du féminisme.[[Suite|r3bis]]&lt;/div&gt;&lt;div class=&quot;pres&quot;&gt;&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;Score : $score&lt;/div&gt;
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="34" name="r3nok" tags="Explication" position="1600,225" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q9&quot; stop&gt;&gt;&lt;&lt;audio &quot;mr-son&quot; play volume 0.2&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.5 play loop&gt;&gt; &lt;&lt;audio &quot;r1&quot; play&gt;&gt; &lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Mauvaise réponse ... &lt;br/&gt;Cette phrase signifie qu’on ne naît pas femme par nature, mais qu’on le devient à travers la société et la culture. &lt;b&gt;Simone de Beauvoir&lt;/b&gt; (1908–1986) était une philosophe, écrivaine et militante féministe française. Son ouvrage majeur, Le Deuxième Sexe (1949), analyse la condition des femmes et a marqué l’histoire du féminisme.
+[[Suite|r3bis]]&lt;/div&gt;&lt;div class=&quot;pres&quot;&gt;&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;Score : $score&lt;/div&gt;
 &lt;script&gt;
 $(document).on(&#39;:passagedisplay&#39;, function() {
      changePresImage(urlSad);
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="35" name="r3bis" tags="Explication" position="1750,350" size="100,100">&lt;&lt;audio &quot;r1&quot; stop&gt;&gt;&lt;&lt;timed 1s&gt;&gt;&lt;&lt;audio &quot;r1&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Figure de l’existentialisme, elle s’est aussi engagée pour les droits des femmes. En 1971, elle a initié le Manifeste des 343, qui a contribué à la légalisation de l’avortement en France.[[Question suivante !|Transition]]&lt;/div&gt;&lt;div class=&quot;pres&quot;&gt;&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;Score : $score&lt;/div&gt;
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="35" name="r3bis" tags="Explication" position="1750,350" size="100,100">&lt;&lt;audio &quot;r1&quot; stop&gt;&gt;&lt;&lt;timed 1s&gt;&gt;&lt;&lt;audio &quot;r1&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Figure de l’existentialisme, elle s’est aussi engagée pour les droits des femmes. En 1971, elle a initié le Manifeste des 343, qui a contribué à la légalisation de l’avortement en France.
+[[Question suivante !|Transition]]&lt;/div&gt;&lt;div class=&quot;pres&quot;&gt;&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;Score : $score&lt;/div&gt;
 &lt;script&gt;
 $(document).on(&#39;:passagedisplay&#39;, function() {
      changePresImage(urlSerious);
@@ -426,32 +465,21 @@ $(document).on(&#39;:passagedisplay&#39;, function() {
      changePresImage(urlSmile);
 });
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="37" name="Q12Vrai" tags="Explication" position="2250,450" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q9&quot; stop&gt;&gt;&lt;&lt;audio &quot;mr-son&quot; play volume 0.2&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.5 play loop&gt;&gt; &lt;&lt;audio &quot;r1&quot; play&gt;&gt; &lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Mauvaise réponse...
-En effet, dans une relation conjugale marquée par la violence, le cycle se répète plus ou moins régulièrement et s’accélère avec le temps.&lt;img src=&quot;https://solidaritefemmes-la.fr/wp-content/uploads/2014/11/Sch%C3%A9ma-cycle-de-la-violence-2.jpg&quot;/&gt;
+En effet, dans une relation conjugale marquée par la violence, le cycle se répète plus ou moins régulièrement et s’accélère avec le temps.&lt;img class=&quot;imgq12exp&quot;  src=&quot;https://solidaritefemmes-la.fr/wp-content/uploads/2014/11/Sch%C3%A9ma-cycle-de-la-violence-2.jpg&quot;/&gt;
 [[Suivant|Q12exp]]&lt;/div&gt; &lt;div class=&quot;pres&quot;/&gt;
 &lt;script&gt;
 $(document).on(&#39;:passagedisplay&#39;, function() {
      changePresImage(urlScared);
 });
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="38" name="Q12Faux" tags="Explication" position="2250,250" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q9&quot; stop&gt;&gt;&lt;&lt;audio &quot;br-son&quot; play volume 0.5&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.2 play loop&gt;&gt;&lt;&lt;audio &quot;r1&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;set $score+=1&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Bonne réponse!
-En effet, dans une relation conjugale marquée par la violence, le cycle se répète plus ou moins régulièrement et s’accélère avec le temps.
+En effet, dans une relation conjugale marquée par la violence, le cycle se répète plus ou moins régulièrement et s’accélère avec le temps.&lt;img class=&quot;imgq12exp&quot;  src=&quot;https://solidaritefemmes-la.fr/wp-content/uploads/2014/11/Sch%C3%A9ma-cycle-de-la-violence-2.jpg&quot;/&gt;
 [[Suivant|Q12exp]]&lt;/div&gt; &lt;div class=&quot;pres&quot;/&gt;
 &lt;script&gt;
 $(document).on(&#39;:passagedisplay&#39;, function() {
      changePresImage(urlGrin);
 });
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="39" name="Q12exp" tags="Explication" position="2375,375" size="100,100">&lt;&lt;audio &quot;r1&quot; stop&gt;&gt;&lt;&lt;timed 1s&gt;&gt;&lt;&lt;audio &quot;r1&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Dans ces cas là il est important de s&#39;adresser aux personnes compétantes :
-Les intervenants locaux :
-- Médecins (Généralistes, Spécialistes, Pédiatres)
-- Professionnels de la santé mentale (Psychologues, Psychiatres)
-- Juristes
-- UMJ (Urgences Médico-Judiciares)
-Les numéros nationaux:
-- 15 : Samu
-- 17 : Police
-- 114 : Urgences sourds et malentendants
-- 115 : Hébergement d&#39;urgence
-- 3919 : Violence femme info
-- 116006 : Numéro européen dédié aux victimes d&#39;infractions pénales
+&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Les intervenants locaux :&lt;/td&gt;&lt;td&gt;Les numéros nationaux:&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;- Médecins (Généralistes, Spécialistes, Pédiatres)&lt;/td&gt;&lt;td&gt;- 15 : Samu&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;- Professionnels de la santé mentale (Psychologues, Psychiatres)&lt;/td&gt;&lt;td&gt;- 17 : Police&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;- Juristes&lt;/td&gt;&lt;td&gt;- 114 : Urgences sourds et malentendants&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;- UMJ (Urgences Médico-Judiciares)&lt;/td&gt;&lt;td&gt;- 115 : Hébergement d&#39;urgence&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;- 3919 : Violence femme info&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;- 116006 : Numéro européen dédié aux victimes d&#39;infractions pénales&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
 [[Question suivante|Q13]]&lt;/div&gt; &lt;div class=&quot;pres&quot;/&gt;
 &lt;script&gt;
 $(document).on(&#39;:passagedisplay&#39;, function() {
@@ -478,13 +506,7 @@ D’après le même article, s’il y a eu une violence conjugale dans l’anné
 $(document).on(&#39;:passagedisplay&#39;, function() {
      changePresImage(urlGrin);
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="43" name="Fin" tags="" position="3175,200" size="100,100">&lt;div class=&quot;exp&quot;&gt; Cette émission touche à sa fin ! Mais avant de réveler les résultats nous souhaitons remercier nos téléspectateurs pour avoir suivis ce programme. Ainsi que le candidat pour y avoir participer et avoir ce quizz avec : $score points sur 13 !!!
-[[Recommencer|Introduction]]&lt;/div&gt; &lt;div class=&quot;pres&quot;/&gt;
-&lt;script&gt;
-$(document).on(&#39;:passagedisplay&#39;, function() {
-     changePresImage(urlGrin);
-});
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="44" name="Vrai_4" tags="Explication" position="2075,1975" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q9&quot; stop&gt;&gt;&lt;&lt;audio &quot;br-son&quot; play volume 0.5&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.2 play loop&gt;&gt;&lt;&lt;audio &quot;r1&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;set $score += 1&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Et c&#39;est une .... Bonne réponse!
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="43" name="Vrai_4" tags="Explication" position="2075,1975" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q9&quot; stop&gt;&gt;&lt;&lt;audio &quot;br-son&quot; play volume 0.5&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.2 play loop&gt;&gt;&lt;&lt;audio &quot;r1&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;set $score += 1&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Et c&#39;est une .... Bonne réponse!
 Peut-on avoir plus de détails sur cette réponse ?
 /*La voix*/
 La PrEP est une stratégie de prévention du VIH. Elle consiste à prendre un médicament antirétroviral de manière continue ou discontinue (à la demande) pour éviter d&#39;être contaminé par le VIH.
@@ -494,7 +516,7 @@ Il faut donc se protéger, par exemple avec un préservatif, pour diminuer le ri
 $(document).on(&#39;:passagedisplay&#39;, function() {
      changePresImage(urlGrin);
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="45" name="Faux_4" tags="Explication" position="2075,2175" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q9&quot; stop&gt;&gt;&lt;&lt;audio &quot;mr-son&quot; play volume 0.2&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.5 play loop&gt;&gt; &lt;&lt;audio &quot;r1&quot; play&gt;&gt; &lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Et c&#39;est une .... Mauvaise réponse.
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="44" name="Faux_4" tags="Explication" position="2075,2175" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q9&quot; stop&gt;&gt;&lt;&lt;audio &quot;mr-son&quot; play volume 0.2&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.5 play loop&gt;&gt; &lt;&lt;audio &quot;r1&quot; play&gt;&gt; &lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Et c&#39;est une .... Mauvaise réponse.
 Peut-on avoir plus de détails sur cette réponse ?
 /*La voix*/
 La PrEP est une stratégie de prévention du VIH. Elle consiste à prendre un médicament
@@ -505,13 +527,13 @@ Il faut donc se protéger, par exemple avec un préservatif, pour diminuer le ri
 $(document).on(&#39;:passagedisplay&#39;, function() {
      changePresImage(urlScared);
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="46" name="question_SS_GAY" tags="Question-vrai-ou-faux" position="1950,2300" size="100,100">&lt;&lt;audio &quot;r1&quot; stop&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;quest-son&quot; volume 0.2 play loop&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;q9&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Dernière question sur le thème Sexualité avant qu&#39;en entame le dernier sujet. Êtes-vous prêt?
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="45" name="question_SS_GAY" tags="Question-vrai-ou-faux" position="1950,2300" size="100,100">&lt;&lt;audio &quot;r1&quot; stop&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;quest-son&quot; volume 0.2 play loop&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;q9&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Dernière question sur le thème Sexualité avant qu&#39;en entame le dernier sujet. Êtes-vous prêt?
 Vrai ou faux ? La PrEP, si elle est bien prise permet de protéger contre toutes les IST&lt;/div&gt;&lt;div class=&quot;rep&quot;&gt;[[Faux -&gt;Vrai_4]]&lt;/div&gt;&lt;div class=&quot;rep&quot;&gt;[[Vrai -&gt;Faux_4]]&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;Score : $score&lt;/div&gt;&lt;div class=&quot;pres&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
 $(document).on(&#39;:passagedisplay&#39;, function() {
      changePresImage(urlSmile);
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="47" name="question_VDG_ApprocheSoins" tags="Question-vrai-ou-faux" position="2225,2075" size="100,100">&lt;&lt;audio &quot;r1&quot; stop&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;quest-son&quot; volume 0.2 play loop&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;q9&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Nouveau et dernier sujet
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="46" name="question_VDG_ApprocheSoins" tags="Question-vrai-ou-faux" position="2225,2075" size="100,100">&lt;&lt;audio &quot;r1&quot; stop&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;quest-son&quot; volume 0.2 play loop&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;q9&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Nouveau et dernier sujet
 Un sujet sérieux car on va apporter les violences de genres
 Êtes-vous prêt pour la première question?
 TOP : Vrai ou faux ? Les professionnels de santé doivent pousser les patient.es à décrire le plus possible les événements traumatiques qu’ils ont pu vivre afin de personnaliser au mieux la prise en charge.&lt;/div&gt;&lt;div class=&quot;rep&quot;&gt;[[Faux -&gt;Vrai_5]]&lt;/div&gt;&lt;div class=&quot;rep&quot;&gt;[[Vrai -&gt;Faux_5]]&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;Score : $score&lt;/div&gt;&lt;div class=&quot;pres&quot;&gt;&lt;/div&gt;
@@ -519,7 +541,7 @@ TOP : Vrai ou faux ? Les professionnels de santé doivent pousser les patient.es
 $(document).on(&#39;:passagedisplay&#39;, function() {
      changePresImage(urlSmile);
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="48" name="Vrai_5" tags="Explication" position="2375,2175" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q9&quot; stop&gt;&gt;&lt;&lt;audio &quot;br-son&quot; play volume 0.5&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.2 play loop&gt;&gt;&lt;&lt;audio &quot;r1&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;set $score += 1&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Et c&#39;est une .... Bonne réponse 
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="47" name="Vrai_5" tags="Explication" position="2375,2175" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q9&quot; stop&gt;&gt;&lt;&lt;audio &quot;br-son&quot; play volume 0.5&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.2 play loop&gt;&gt;&lt;&lt;audio &quot;r1&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;set $score += 1&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Et c&#39;est une .... Bonne réponse 
 Peut-on avoir plus de détails sur cette réponse ?
 /*La voix*/
 Les professionnels de santé doivent s’adapter aux patient.es et à leurs choix, notamment leur choix de se livrer ou non. Le rôle du professionnel de santé est d’assurer aux patient.es leur libre arbitre et leur autonomie
@@ -528,7 +550,7 @@ Les professionnels de santé doivent s’adapter aux patient.es et à leurs choi
 $(document).on(&#39;:passagedisplay&#39;, function() {
      changePresImage(urlGrin);
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="49" name="Faux_5" tags="Explication" position="2375,1975" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q9&quot; stop&gt;&gt;&lt;&lt;audio &quot;mr-son&quot; play volume 0.2&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.5 play loop&gt;&gt; &lt;&lt;audio &quot;r1&quot; play&gt;&gt; &lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Et c&#39;est une .... Mauvaise réponse. 
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="48" name="Faux_5" tags="Explication" position="2375,1975" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q9&quot; stop&gt;&gt;&lt;&lt;audio &quot;mr-son&quot; play volume 0.2&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.5 play loop&gt;&gt; &lt;&lt;audio &quot;r1&quot; play&gt;&gt; &lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Et c&#39;est une .... Mauvaise réponse. 
 Peut-on avoir plus de détails sur cette réponse ?
 /*La voix*/
 Les professionnels de santé doivent s’adapter aux patient.es et à leurs choix, notamment leur choix de se livrer ou non. Le rôle du professionnel de santé est d’assurer aux patient.es leur libre arbitre et leur autonomie
@@ -537,7 +559,7 @@ Les professionnels de santé doivent s’adapter aux patient.es et à leurs choi
 $(document).on(&#39;:passagedisplay&#39;, function() {
      changePresImage(urlSad);
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="50" name="question_VDG_GeneralitesEtChiffres" tags="Question-vrai-ou-faux" position="2525,2075" size="100,100">&lt;&lt;audio &quot;r1&quot; stop&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;quest-son&quot; volume 0.2 play loop&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;q9&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Deuxième question sur ce thème : 
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="49" name="question_VDG_GeneralitesEtChiffres" tags="Question-vrai-ou-faux" position="2525,2075" size="100,100">&lt;&lt;audio &quot;r1&quot; stop&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;quest-son&quot; volume 0.2 play loop&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;q9&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Deuxième question sur ce thème : 
 Êtes-vous prêt?
 TOP : Vrai ou faux ? Le genre est employé pour désigner le sexe « biologique » d’une
 personne.&lt;/div&gt;&lt;div class=&quot;rep&quot;&gt;[[Faux -&gt;Vrai_GeneralitesEtChiffres]]&lt;/div&gt;&lt;div class=&quot;rep&quot;&gt;[[Vrai -&gt;Faux_GeneralitesEtChiffres]]&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;Score : $score&lt;/div&gt;&lt;div class=&quot;pres&quot;&gt;&lt;/div&gt;
@@ -545,7 +567,7 @@ personne.&lt;/div&gt;&lt;div class=&quot;rep&quot;&gt;[[Faux -&gt;Vrai_Generalit
 $(document).on(&#39;:passagedisplay&#39;, function() {
      changePresImage(urlSmile);
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="51" name="Vrai_GeneralitesEtChiffres" tags="Explication" position="2675,2175" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q9&quot; stop&gt;&gt;&lt;&lt;audio &quot;br-son&quot; play volume 0.5&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.2 play loop&gt;&gt;&lt;&lt;audio &quot;r1&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;set $score += 1&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Et c&#39;est une ... Bonne réponse!
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="50" name="Vrai_GeneralitesEtChiffres" tags="Explication" position="2675,2175" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q9&quot; stop&gt;&gt;&lt;&lt;audio &quot;br-son&quot; play volume 0.5&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.2 play loop&gt;&gt;&lt;&lt;audio &quot;r1&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;set $score += 1&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Et c&#39;est une ... Bonne réponse!
 Peut-on avoir plus de détails sur cette réponse ?
 /*La voix*/
 Le sexe est employé pour désigner le sexe « biologique » d’une personne (en d’autres termes, chromosomique, gonadique, anatomique ou encore physiologique).
@@ -557,7 +579,7 @@ Le genre se réfère à la représentation sociale du sexe.
 $(document).on(&#39;:passagedisplay&#39;, function() {
      changePresImage(urlGrin);
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="52" name="Faux_GeneralitesEtChiffres" tags="Explication" position="2675,1975" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q9&quot; stop&gt;&gt;&lt;&lt;audio &quot;mr-son&quot; play volume 0.2&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.5 play loop&gt;&gt; &lt;&lt;audio &quot;r1&quot; play&gt;&gt; &lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Et c&#39;est une ... Mauvaise  réponse.
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="51" name="Faux_GeneralitesEtChiffres" tags="Explication" position="2675,1975" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q9&quot; stop&gt;&gt;&lt;&lt;audio &quot;mr-son&quot; play volume 0.2&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.5 play loop&gt;&gt; &lt;&lt;audio &quot;r1&quot; play&gt;&gt; &lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Et c&#39;est une ... Mauvaise  réponse.
 Peut-on avoir plus de détails sur cette réponse ?
 /*La voix*/
 Le sexe est employé pour désigner le sexe « biologique » d’une personne (en d’autres termes, chromosomique, gonadique, anatomique ou encore physiologique).
@@ -569,7 +591,7 @@ Le genre se réfère à la représentation sociale du sexe.
 $(document).on(&#39;:passagedisplay&#39;, function() {
      changePresImage(urlScared);
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="53" name="question_VDG_Types" tags="Question-vrai-ou-faux" position="2825,2075" size="100,100">&lt;&lt;audio &quot;r1&quot; stop&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;quest-son&quot; volume 0.2 play loop&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;q9&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Troisième question sur ce thème 
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="52" name="question_VDG_Types" tags="Question-vrai-ou-faux" position="2825,2075" size="100,100">&lt;&lt;audio &quot;r1&quot; stop&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;quest-son&quot; volume 0.2 play loop&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;q9&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Troisième question sur ce thème 
 Attention la question peut contenir un piège, c&#39;est une question vrai ou faux
 Êtes-vous prêt?
 TOP : Vrai ou faux ? Le viol est-il un délit. &lt;/div&gt;&lt;div class=&quot;rep&quot;&gt;[[Faux -&gt;Vrai_VDG_Types]]&lt;/div&gt;&lt;div class=&quot;rep&quot;&gt;[[Vrai -&gt;Faux_VDG_Types]]&lt;/div&gt;&lt;div class=&quot;score&quot;&gt;Score : $score&lt;/div&gt;&lt;div class=&quot;pres&quot;&gt;&lt;/div&gt;
@@ -577,7 +599,7 @@ TOP : Vrai ou faux ? Le viol est-il un délit. &lt;/div&gt;&lt;div class=&quot;r
 $(document).on(&#39;:passagedisplay&#39;, function() {
      changePresImage(urlSmile);
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="54" name="Vrai_VDG_Types" tags="Explication" position="2975,2175" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q9&quot; stop&gt;&gt;&lt;&lt;audio &quot;br-son&quot; play volume 0.5&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.2 play loop&gt;&gt;&lt;&lt;audio &quot;r1&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;set $score += 1&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Et c&#39;est une... Bonne réponse!
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="53" name="Vrai_VDG_Types" tags="Explication" position="2975,2175" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q9&quot; stop&gt;&gt;&lt;&lt;audio &quot;br-son&quot; play volume 0.5&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.2 play loop&gt;&gt;&lt;&lt;audio &quot;r1&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;&lt;set $score += 1&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Et c&#39;est une... Bonne réponse!
 Peut-on avoir plus de détails sur cette réponse ?
 Une agression sexuelle est une atteinte sexuelle commise avec violence, contrainte physique ou morale, menace ou surprise, soit sans le consentement clair et explicite de la victime. C’est un délit.
 Le viol, c’est tout acte de pénétration sexuelle, de quelque nature qu&#39;il soit, ou tout acte bucco-génital commis sur la personne d&#39;autrui ou sur la personne de l&#39;auteur par violence, contrainte,menace ou surprise. Le viol est un crime.
@@ -586,7 +608,7 @@ Le viol, c’est tout acte de pénétration sexuelle, de quelque nature qu&#39;i
 $(document).on(&#39;:passagedisplay&#39;, function() {
      changePresImage(urlGrin);
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="55" name="Faux_VDG_Types" tags="Explication" position="2975,1975" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q9&quot; stop&gt;&gt;&lt;&lt;audio &quot;mr-son&quot; play volume 0.2&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.5 play loop&gt;&gt; &lt;&lt;audio &quot;r1&quot; play&gt;&gt; &lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Et c&#39;est une ... Mauvaise réponse.
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="54" name="Faux_VDG_Types" tags="Explication" position="2975,1975" size="100,100">&lt;&lt;audio &quot;quest-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;q9&quot; stop&gt;&gt;&lt;&lt;audio &quot;mr-son&quot; play volume 0.2&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;expl-son&quot; volume 0.5 play loop&gt;&gt; &lt;&lt;audio &quot;r1&quot; play&gt;&gt; &lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Et c&#39;est une ... Mauvaise réponse.
 Peut-on avoir plus de détails sur cette réponse ?
 Une agression sexuelle est une atteinte sexuelle commise avec violence, contrainte physique ou morale, menace ou surprise, soit sans le consentement clair et explicite de la victime. C’est un délit.
 Le viol, c’est tout acte de pénétration sexuelle, de quelque nature qu&#39;il soit, ou tout acte bucco-génital commis sur la personne d&#39;autrui ou sur la personne de l&#39;auteur par violence, contrainte,menace ou surprise. Le viol est un crime.
@@ -595,21 +617,21 @@ Le viol, c’est tout acte de pénétration sexuelle, de quelque nature qu&#39;i
 $(document).on(&#39;:passagedisplay&#39;, function() {
      changePresImage(urlSad);
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="56" name="Interpretation" tags="" position="2925,450" size="100,100">&lt;&lt;audio &quot;expl-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;r1&quot; stop&gt;&gt;&lt;&lt;audio &quot;applause&quot; play volume 0.2&gt;&gt;&lt;&lt;audio &quot;fin-son&quot; play loop volume 0.2&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;fin&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Votre score final est de $score
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="55" name="Interpretation" tags="" position="3000,275" size="100,100">&lt;&lt;audio &quot;expl-son&quot; stop&gt;&gt;&lt;&lt;audio &quot;r1&quot; stop&gt;&gt;&lt;&lt;audio &quot;applause&quot; play volume 0.2&gt;&gt;&lt;&lt;audio &quot;fin-son&quot; play loop volume 0.2&gt;&gt;&lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;audio &quot;fin&quot; play&gt;&gt;&lt;&lt;/timed&gt;&gt;&lt;div class=&quot;exp&quot;&gt;Votre score final est de $score
 &lt;&lt;switch $score&gt;&gt;
 	&lt;&lt;case 12 13&gt;&gt;
-		#h2 🔮 Oracle des nuits secrètes : 
+		🔮 Oracle des nuits secrètes : 
 		Les astres s’inclinent devant toi, voyageur des ténèbres soyeuses. Tes réponses 		résonnent comme des vérités ancestrales murmurées sous la couette. Tu es la voix qui éclaire les draps froissés du monde, le sage qui lit dans les ombres des lampes de chevet. Nul doute : tu es destiné·e à guider les âmes perdues vers le savoir charnel.
 	&lt;&lt;case 10 11&gt;&gt;
 		🌌 Espoir des draps froissés
 		Ton aura scintille entre lucidité et maladresse charmante. Les draps se froissent à ton passage, témoins de ton enthousiasme. On croit en toi, messager·ère imparfait·e, dont les hésitations ne sont que le signe d’un futur éclatant. Tu es l’étincelle de la curiosité, la promesse d’un savoir qui grandira encore.
-	&lt;&lt;case 8 7&gt;&gt;
+	&lt;&lt;case 8 9&gt;&gt;
 		💘 Assistant Cupidon sacré
 		Ton arc n’est pas toujours tendu, mais ta flèche atteint parfois son but. L’univers t’accorde le rôle de complice des passions et des maladresses. Tes conseils, mi-précis mi-hésitants, évoquent l’élève appliqué qui rêve déjà de devenir maître. Tu avances sur le chemin du cœur, guidé·e par la lumière fragile de Cupidon.
 	&lt;&lt;case 6 7&gt;&gt;
     🛏️ Apprenti du savoir du traversin
     Tu reposes ta tête sur le traversin de la connaissance, encore doux mais déjà porteur d’enseignements. Tu n’es pas encore gardien des secrets, mais tu es l’apprenti curieux, celui qui écoute et absorbe. Tes pas sont timides, mais chaque nuit passée tisse le fil d’un destin prometteur.
-	&lt;&lt;case 4 5&gt;&gt;
+	&lt;&lt;case 3 4 5&gt;&gt;
     🔎 Explorateur perdu du sommier
     Tu avances à tâtons dans les méandres des ressorts et des planches grinçantes. Le sommier, austère et sans drap, reflète ta quête confuse. Tu cherches des réponses mais trébuches dans l’obscurité. Ton courage est là, pourtant : tu explores encore, malgré l’écho des erreurs. La voie est brouillée, mais pas fermée.
 	&lt;&lt;case 0 1 2&gt;&gt;
@@ -617,9 +639,9 @@ $(document).on(&#39;:passagedisplay&#39;, function() {
     Les ténèbres t’ont englouti·e, et les cauchemars chuchotent tes échecs. Tes réponses résonnent comme des ombres qui fuient la lumière. Mais dans ce désespoir même naît une étrange force : celle de tout recommencer, de se relever, d’affronter encore les nuits hostiles. Tu es l’âme égarée, mais toute nuit noire annonce l’aube.
     &lt;&lt;default&gt;&gt;
 		Erreur : score inconnu.
-&lt;&lt;/switch&gt;&gt;&lt;div class=&quot;pres&quot;/&gt;
-&lt;/div&gt;
-[[Suite-&gt;Fin]]
+&lt;&lt;/switch&gt;&gt;
+[[Recommencer|Introduction]]&lt;/div&gt;&lt;div class=&quot;pres&quot;/&gt;
+
 
 &lt;script&gt;
 $(document).on(&#39;:passagedisplay&#39;, function() {
